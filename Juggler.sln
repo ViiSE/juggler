@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juggler", "Juggler.csproj", "{0B0606F7-CABA-4BE9-85B9-63622F21D84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JugglerTest", "..\JugglerTest\JugglerTest.csproj", "{210AD69B-258A-4390-BE3D-359B67205A7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B0606F7-CABA-4BE9-85B9-63622F21D84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0606F7-CABA-4BE9-85B9-63622F21D84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0606F7-CABA-4BE9-85B9-63622F21D84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0606F7-CABA-4BE9-85B9-63622F21D84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210AD69B-258A-4390-BE3D-359B67205A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210AD69B-258A-4390-BE3D-359B67205A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210AD69B-258A-4390-BE3D-359B67205A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210AD69B-258A-4390-BE3D-359B67205A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1E8BAE3-A76F-4A6C-9064-85EF1C8441F6}
+	EndGlobalSection
+EndGlobal

@@ -34,3 +34,6 @@ pattern `\java\jdk`. Notice that pattern and environment variable lowercase tran
 3. To save state, Juggler creates a `.juggler` folder in the user folder. In this folder in the `settings.json` file the
    list of JDK is stored, including the default JDK, and the list of patterns used to find executable JDK folder in
    `PATH`
+
+## How to use?
+Extract the [archive](https://github.com/ViiSE/juggler/releases/tag/Release) in any directory and run `Juggler.exe`.

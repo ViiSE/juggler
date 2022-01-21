@@ -3,6 +3,8 @@
      width="256" height="256">
 </p>
 
+[RU - Русский](https://github.com/ViiSE/juggler/blob/main/README-RU.md)
+
 # Juggler
 Hot swap JDK on Windows
 

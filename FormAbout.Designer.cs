@@ -34,6 +34,7 @@
             this.labelDescription = new System.Windows.Forms.Label();
             this.linkLabelMainPage = new System.Windows.Forms.LinkLabel();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             // linkLabelMainPage
             // 
             this.linkLabelMainPage.AutoSize = true;
-            this.linkLabelMainPage.Location = new System.Drawing.Point(122, 225);
+            this.linkLabelMainPage.Location = new System.Drawing.Point(122, 237);
             this.linkLabelMainPage.Name = "linkLabelMainPage";
             this.linkLabelMainPage.Size = new System.Drawing.Size(61, 13);
             this.linkLabelMainPage.TabIndex = 3;
@@ -86,11 +87,21 @@
             this.labelCopyright.TabIndex = 4;
             this.labelCopyright.Text = "Copyright (C) 2022 ViiSE";
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(113, 212);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(78, 13);
+            this.labelVersion.TabIndex = 5;
+            this.labelVersion.Text = "Version 1.0.0.0";
+            // 
             // FormAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 281);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.linkLabelMainPage);
             this.Controls.Add(this.labelDescription);
@@ -116,5 +127,6 @@
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.LinkLabel linkLabelMainPage;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

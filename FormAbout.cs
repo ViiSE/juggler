@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Juggler
@@ -15,6 +16,7 @@ namespace Juggler
         public FormAbout()
         {
             InitializeComponent();
+            labelVersion.Text = "Version " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void LinkLabelMainPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

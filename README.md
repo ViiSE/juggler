@@ -21,21 +21,22 @@ one user-specified pattern (`Edit/Change JDK path patterns...` tab). If patterns
 pattern `\java\jdk`. Notice that pattern and environment variable lowercase translation when searching.
 
 ## Functionality
-1. Creates and modifies the list of available JDKs: Each JDK has a path and an alias (name in human-readable format)
-2. Sets JDK that will be used by default from the list of available JDKs
-3. Creates and modifies the list of patterns used to find executable JDK folder in `PATH`
-4. Juggler minimizes to System Tray. To do this, you need to close the program through the system button `Close` 
-   (red cross). In System Tray you can change JDK on the fly
+ 1. Creates and modifies the list of available JDKs: Each JDK has a path and an alias (name in human-readable format)
+ 2. Sets JDK that will be used by default from the list of available JDKs
+ 3. Creates and modifies the list of patterns used to find executable JDK folder in `PATH`
+ 4. Juggler minimizes to System Tray. To do this, you need to close the program through the system button `Close` 
+    (red cross). In System Tray you can also change the JDK on the fly and perform actions with PATH and JAVA_HOME
+ 5. Get, save, restore JAVA_HOME and PATH
 
 ## Peculiarities
-1. Changing system environments requires administrator privileges. Therefore, the program is used in mode 
-   `as administrator`
-2. Changing system environment variables is a rather long process (10-15 seconds). Why is that - I don't know. If you 
-   knows, I will be grateful for the answer! For change environment variable I use
+ 1. Changing system environments requires administrator privileges. Therefore, the program is used in mode 
+    `as administrator`
+ 2. Changing system environment variables is a rather long process (10-15 seconds). Why is that - I don't know. If you 
+    knows, I will be grateful for the answer! For change environment variable I use
    `Environment.SetEnvironmentVariable("ENV_VAR", envVarValue, EnvironmentVariableTarget.Machine)`
-3. To save state, Juggler creates a `.juggler` folder in the user folder. In this folder in the `settings.json` file the
-   list of JDK is stored, including the default JDK, and the list of patterns used to find executable JDK folder in
-   `PATH`
+ 3. To save state, Juggler creates a `.juggler` folder in the user folder. In this folder in the `settings.json` file 
+    the list of JDK is stored, including the default JDK, and the list of patterns used to find executable JDK folder in
+    `PATH`
 
 ## How to use?
 Extract the [archive](https://github.com/ViiSE/juggler/releases/tag/Release) in any directory and run `Juggler.exe`.

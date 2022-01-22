@@ -44,6 +44,7 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeJdkPathPatternsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
@@ -54,6 +55,17 @@
             this.toolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemClose = new System.Windows.Forms.ToolStripMenuItem();
             this.jdkListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGetSystemPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGetSavedPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGetSystemJavaHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGetSavedJavaHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparatorSettingsSave = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemSaveSystemPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSaveSystemJavaHome = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparatorSettingsRestore = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemRestoreSystemPath = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRestoreJavaHomePath = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
@@ -153,7 +165,8 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeJdkPathPatternsToolStripMenuItem});
+            this.changeJdkPathPatternsToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             // 
@@ -162,6 +175,12 @@
             this.changeJdkPathPatternsToolStripMenuItem.Name = "changeJdkPathPatternsToolStripMenuItem";
             resources.ApplyResources(this.changeJdkPathPatternsToolStripMenuItem, "changeJdkPathPatternsToolStripMenuItem");
             this.changeJdkPathPatternsToolStripMenuItem.Click += new System.EventHandler(this.ChangeJdkPathPatternsToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            resources.ApplyResources(this.settingsToolStripMenuItem, "settingsToolStripMenuItem");
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -208,7 +227,8 @@
             this.contextMenuStripNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemOpen,
             this.toolStripMenuItemClose,
-            this.jdkListToolStripMenuItem});
+            this.jdkListToolStripMenuItem,
+            this.toolStripMenuItemSettings});
             this.contextMenuStripNotify.Name = "contextMenuStripNotify";
             resources.ApplyResources(this.contextMenuStripNotify, "contextMenuStripNotify");
             // 
@@ -228,6 +248,80 @@
             // 
             this.jdkListToolStripMenuItem.Name = "jdkListToolStripMenuItem";
             resources.ApplyResources(this.jdkListToolStripMenuItem, "jdkListToolStripMenuItem");
+            // 
+            // toolStripMenuItemSettings
+            // 
+            this.toolStripMenuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemGetSystemPath,
+            this.toolStripMenuItemGetSavedPath,
+            this.toolStripMenuItemGetSystemJavaHome,
+            this.toolStripMenuItemGetSavedJavaHome,
+            this.toolStripSeparatorSettingsSave,
+            this.toolStripMenuItemSaveSystemPath,
+            this.toolStripMenuItemSaveSystemJavaHome,
+            this.toolStripSeparatorSettingsRestore,
+            this.toolStripMenuItemRestoreSystemPath,
+            this.toolStripMenuItemRestoreJavaHomePath});
+            this.toolStripMenuItemSettings.Name = "toolStripMenuItemSettings";
+            resources.ApplyResources(this.toolStripMenuItemSettings, "toolStripMenuItemSettings");
+            // 
+            // toolStripMenuItemGetSystemPath
+            // 
+            this.toolStripMenuItemGetSystemPath.Name = "toolStripMenuItemGetSystemPath";
+            resources.ApplyResources(this.toolStripMenuItemGetSystemPath, "toolStripMenuItemGetSystemPath");
+            this.toolStripMenuItemGetSystemPath.Click += new System.EventHandler(this.ToolStripMenuItemGetSystemPath_Click);
+            // 
+            // toolStripMenuItemGetSavedPath
+            // 
+            this.toolStripMenuItemGetSavedPath.Name = "toolStripMenuItemGetSavedPath";
+            resources.ApplyResources(this.toolStripMenuItemGetSavedPath, "toolStripMenuItemGetSavedPath");
+            this.toolStripMenuItemGetSavedPath.Click += new System.EventHandler(this.ToolStripMenuItemGetSavedPath_Click);
+            // 
+            // toolStripMenuItemGetSystemJavaHome
+            // 
+            this.toolStripMenuItemGetSystemJavaHome.Name = "toolStripMenuItemGetSystemJavaHome";
+            resources.ApplyResources(this.toolStripMenuItemGetSystemJavaHome, "toolStripMenuItemGetSystemJavaHome");
+            this.toolStripMenuItemGetSystemJavaHome.Click += new System.EventHandler(this.ToolStripMenuItemGetSystemJavaHome_Click);
+            // 
+            // toolStripMenuItemGetSavedJavaHome
+            // 
+            this.toolStripMenuItemGetSavedJavaHome.Name = "toolStripMenuItemGetSavedJavaHome";
+            resources.ApplyResources(this.toolStripMenuItemGetSavedJavaHome, "toolStripMenuItemGetSavedJavaHome");
+            this.toolStripMenuItemGetSavedJavaHome.Click += new System.EventHandler(this.ToolStripMenuItemGetSavedJavaHome_Click);
+            // 
+            // toolStripSeparatorSettingsSave
+            // 
+            this.toolStripSeparatorSettingsSave.Name = "toolStripSeparatorSettingsSave";
+            resources.ApplyResources(this.toolStripSeparatorSettingsSave, "toolStripSeparatorSettingsSave");
+            // 
+            // toolStripMenuItemSaveSystemPath
+            // 
+            this.toolStripMenuItemSaveSystemPath.Name = "toolStripMenuItemSaveSystemPath";
+            resources.ApplyResources(this.toolStripMenuItemSaveSystemPath, "toolStripMenuItemSaveSystemPath");
+            this.toolStripMenuItemSaveSystemPath.Click += new System.EventHandler(this.ToolStripMenuItemSaveSystemPath_Click);
+            // 
+            // toolStripMenuItemSaveSystemJavaHome
+            // 
+            this.toolStripMenuItemSaveSystemJavaHome.Name = "toolStripMenuItemSaveSystemJavaHome";
+            resources.ApplyResources(this.toolStripMenuItemSaveSystemJavaHome, "toolStripMenuItemSaveSystemJavaHome");
+            this.toolStripMenuItemSaveSystemJavaHome.Click += new System.EventHandler(this.ToolStripMenuItemSaveSystemJavaHome_Click);
+            // 
+            // toolStripSeparatorSettingsRestore
+            // 
+            this.toolStripSeparatorSettingsRestore.Name = "toolStripSeparatorSettingsRestore";
+            resources.ApplyResources(this.toolStripSeparatorSettingsRestore, "toolStripSeparatorSettingsRestore");
+            // 
+            // toolStripMenuItemRestoreSystemPath
+            // 
+            this.toolStripMenuItemRestoreSystemPath.Name = "toolStripMenuItemRestoreSystemPath";
+            resources.ApplyResources(this.toolStripMenuItemRestoreSystemPath, "toolStripMenuItemRestoreSystemPath");
+            this.toolStripMenuItemRestoreSystemPath.Click += new System.EventHandler(this.ToolStripMenuItemRestoreSystemPath_Click);
+            // 
+            // toolStripMenuItemRestoreJavaHomePath
+            // 
+            this.toolStripMenuItemRestoreJavaHomePath.Name = "toolStripMenuItemRestoreJavaHomePath";
+            resources.ApplyResources(this.toolStripMenuItemRestoreJavaHomePath, "toolStripMenuItemRestoreJavaHomePath");
+            this.toolStripMenuItemRestoreJavaHomePath.Click += new System.EventHandler(this.ToolStripMenuItemRestoreJavaHomePath_Click);
             // 
             // FormMain
             // 
@@ -279,6 +373,18 @@
         private System.Windows.Forms.ToolStripMenuItem jdkListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSettings;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGetSystemPath;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGetSavedPath;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGetSystemJavaHome;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGetSavedJavaHome;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorSettingsSave;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSaveSystemPath;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSaveSystemJavaHome;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorSettingsRestore;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRestoreSystemPath;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRestoreJavaHomePath;
     }
 }
 

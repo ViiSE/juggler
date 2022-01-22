@@ -125,6 +125,22 @@ namespace Juggler
             menuStripMain.Enabled = false;
         }
 
+        public void ChangeDefaultJdk(string oldDefaultPath)
+        {
+            foreach (ListViewItem jdkListItem in listViewJdk.Items)
+            {
+                if (jdkListItem.SubItems[1].Text.Equals(oldDefaultPath))
+                {
+                    jdkListItem.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    jdkListItem.BackColor = SystemColors.Window;
+                }
+            }
+            SaveJdkList();
+        }
+
         private void ButtonAddJdk_Click(object sender, EventArgs e)
         {
             FormAddJdk formAddJdk = new FormAddJdk(this, props);
@@ -158,8 +174,15 @@ namespace Juggler
         {
             if (listViewJdk.SelectedItems.Count != 0)
             {
+                string oldDefaultPath = "";
+
                 foreach (ListViewItem jdkListItem in listViewJdk.Items)
                 {
+                    if (jdkListItem.BackColor == Color.LightGreen)
+                    {
+                        oldDefaultPath = jdkListItem.SubItems[1].Text;
+                    }
+
                     jdkListItem.BackColor = SystemColors.Window;
                 }
 
@@ -179,7 +202,46 @@ namespace Juggler
                 IProgress<bool> progressMenuStripMainEnabled = new Progress<bool>(value => { menuStripMain.Enabled = value; });
 
                 DisableAll();
-                Task.Run(() => jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns)).ContinueWith(t =>
+                Task.Run(() =>
+                {
+                    if (props.Get().JavaPropertiesDTO.ChangeJdkBasedOnDefaultJdk)
+                    {
+                        if (oldDefaultPath.Length != 0)
+                        {
+                            List<string> jdkPathPatterns = new List<string>();
+
+                            foreach (JdkPropertiesDTO jdkPropertiesDTO in props.Get().JavaPropertiesDTO.JdkPropertiesDTOs)
+                            {
+                                if (jdkPropertiesDTO.Path.Equals(oldDefaultPath) && jdkPropertiesDTO.IsDefault)
+                                {
+                                    jdkPathPatterns.Add(jdkPropertiesDTO.Path);
+                                    break;
+                                }
+                            }
+
+                            if (jdkPathPatterns.Count == 0)
+                            {
+                                jdkPathPatterns = props.Get().JavaPropertiesDTO.JdkPathPatterns;
+                            }
+
+                            jdkPath.Change(path, jdkPathPatterns);
+                        }
+                        else
+                        {
+                            jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                        }
+                    }
+                    else
+                    {
+                        jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                    }
+
+                    if (props.Get().JavaPropertiesDTO.AutomaticallySavePathAndJavaHome)
+                    {
+                        props.Get().SavedPath = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine);
+                        props.Get().SavedJavaHome = Environment.GetEnvironmentVariable("JAVA_HOME", EnvironmentVariableTarget.Machine);
+                    }
+                }).ContinueWith(t =>
                 {
                     progressBarAnimationSpeed?.Report(0);
                     progressBarValue?.Report(0);
@@ -297,6 +359,139 @@ namespace Juggler
         {
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
+        }
+
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSettings formSettings = new FormSettings(props, this);
+            formSettings.ShowDialog();
+        }
+
+        private void ToolStripMenuItemGetSystemPath_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine));
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Copied!";
+            notifyIconJuggler.BalloonTipText = "System PATH has been copied to clipboard!";
+            notifyIconJuggler.ShowBalloonTip(1000);
+        }
+
+        private void ToolStripMenuItemGetSavedPath_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(props.Get().SavedPath);
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Copied!";
+            notifyIconJuggler.BalloonTipText = "Saved PATH has been copied to clipboard!";
+            notifyIconJuggler.ShowBalloonTip(1000);
+        }
+
+        private void ToolStripMenuItemGetSystemJavaHome_Click(object sender, EventArgs e)
+        {
+            if (Environment.GetEnvironmentVariable("JAVA_HOME", EnvironmentVariableTarget.Machine) != null)
+            {
+                Clipboard.SetText(Environment.GetEnvironmentVariable("JAVA_HOME", EnvironmentVariableTarget.Machine));
+                notifyIconJuggler.BalloonTipTitle = "Copied!";
+                notifyIconJuggler.BalloonTipText = "System JAVA_HOME has been copied to clipboard!";
+                notifyIconJuggler.ShowBalloonTip(1000);
+            }
+            else
+            {
+                notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Warning;
+                notifyIconJuggler.BalloonTipTitle = "Failed";
+                notifyIconJuggler.BalloonTipText = "There is not system JAVA_HOME!";
+                notifyIconJuggler.ShowBalloonTip(1000);
+            }
+        }
+
+        private void ToolStripMenuItemGetSavedJavaHome_Click(object sender, EventArgs e)
+        {
+            if (props.Get().SavedJavaHome != null)
+            {
+                Clipboard.SetText(props.Get().SavedJavaHome);
+                notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+                notifyIconJuggler.BalloonTipTitle = "Copied!";
+                notifyIconJuggler.BalloonTipText = "Saved JAVA_HOME has been copied to clipboard!";
+                notifyIconJuggler.ShowBalloonTip(1000);
+            }
+            else
+            {
+                notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Warning;
+                notifyIconJuggler.BalloonTipTitle = "Failed";
+                notifyIconJuggler.BalloonTipText = "There is not saved JAVA_HOME!";
+                notifyIconJuggler.ShowBalloonTip(1000);
+            }
+            
+        }
+
+        private void ToolStripMenuItemSaveSystemPath_Click(object sender, EventArgs e)
+        {
+            props.Get().SavedPath = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine);
+            props.Save();
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Saved!";
+            notifyIconJuggler.BalloonTipText = "System PATH has been saved!";
+            notifyIconJuggler.ShowBalloonTip(1000);
+        }
+
+        private void ToolStripMenuItemSaveSystemJavaHome_Click(object sender, EventArgs e)
+        {
+            props.Get().SavedJavaHome = Environment.GetEnvironmentVariable("JAVA_HOME", EnvironmentVariableTarget.Machine);
+            props.Save();
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Saved!";
+            notifyIconJuggler.BalloonTipText = "System JAVA_HOME has been saved!";
+            notifyIconJuggler.ShowBalloonTip(1000);
+        }
+
+        private void ToolStripMenuItemRestoreSystemPath_Click(object sender, EventArgs e)
+        {
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Restore PATH";
+            notifyIconJuggler.BalloonTipText = "Restore PATH, please, wait. Default JDK can be changed!";
+            notifyIconJuggler.ShowBalloonTip(5000);
+
+            string defaultPath = "";
+            string oldDefaultPath = "";
+
+            string savedPath = props.Get().SavedPath;
+
+            foreach (JdkPropertiesDTO jdkPropertiesDTODefaultPath in props.Get().JavaPropertiesDTO.JdkPropertiesDTOs)
+            {
+                if (jdkPropertiesDTODefaultPath.IsDefault)
+                {
+                    defaultPath = jdkPropertiesDTODefaultPath.Path;
+                }
+
+                if (savedPath.Contains(jdkPropertiesDTODefaultPath.Path))
+                {
+                    oldDefaultPath = jdkPropertiesDTODefaultPath.Path;
+                }
+            }
+
+            if (!defaultPath.Equals(oldDefaultPath))
+            {
+                ChangeDefaultJdk(oldDefaultPath);
+            }
+
+            Environment.SetEnvironmentVariable("PATH", props.Get().SavedPath, EnvironmentVariableTarget.Machine);
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Success!";
+            notifyIconJuggler.BalloonTipText = "PATH has been restored!";
+            notifyIconJuggler.ShowBalloonTip(1000);
+        }
+
+        private void ToolStripMenuItemRestoreJavaHomePath_Click(object sender, EventArgs e)
+        {
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Restore JAVA_HOME";
+            notifyIconJuggler.BalloonTipText = "Restore JAVA_HOME, please, wait...";
+            notifyIconJuggler.ShowBalloonTip(5000);
+
+            Environment.SetEnvironmentVariable("JAVA_HOME", props.Get().SavedJavaHome, EnvironmentVariableTarget.Machine);
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Success!";
+            notifyIconJuggler.BalloonTipText = "JAVA_HOME has been restored!";
+            notifyIconJuggler.ShowBalloonTip(1000);
         }
     }
 }

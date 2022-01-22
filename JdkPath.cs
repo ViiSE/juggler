@@ -18,7 +18,7 @@ namespace Juggler
                 {
                     foreach (string pathPattern in pathPatterns)
                     {
-                        if (pathVarLower.Contains(pathPattern.ToLower()))
+                        if (pathVarLower.Contains(pathPattern.ToLower()) || pathVarLower.Equals(pathPattern.ToLower()))
                         {
                             newPathVars.Add(newJdkPath + "\\bin");
                             isFounded = true;

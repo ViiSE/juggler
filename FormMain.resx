@@ -255,6 +255,33 @@
   <data name="&gt;&gt;buttonRemoveJdk.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="listViewJdk.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="columnHeaderJdkAlias.Text" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="columnHeaderJdkAlias.Width" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="columnHeaderJdkPath.Text" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="columnHeaderJdkPath.Width" type="System.Int32, mscorlib">
+    <value>442</value>
+  </data>
+  <data name="listViewJdk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="listViewJdk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 110</value>
+  </data>
+  <data name="listViewJdk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>529, 173</value>
+  </data>
+  <data name="listViewJdk.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
   <data name="&gt;&gt;listViewJdk.Name" xml:space="preserve">
     <value>listViewJdk</value>
   </data>
@@ -288,48 +315,66 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="listViewJdk.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="listViewJdk.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="listViewJdk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 110</value>
-  </data>
-  <data name="listViewJdk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>529, 173</value>
-  </data>
-  <data name="listViewJdk.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;listViewJdk.Name" xml:space="preserve">
-    <value>listViewJdk</value>
-  </data>
-  <data name="&gt;&gt;listViewJdk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewJdk.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;listViewJdk.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="columnHeaderJdkAlias.Text" xml:space="preserve">
-    <value>Alias</value>
-  </data>
-  <data name="columnHeaderJdkAlias.Width" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
-  <data name="columnHeaderJdkPath.Text" xml:space="preserve">
-    <value>Path</value>
-  </data>
-  <data name="columnHeaderJdkPath.Width" type="System.Int32, mscorlib">
-    <value>442</value>
-  </data>
   <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="closeToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Q</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="changeJdkPathPatternsToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="changeJdkPathPatternsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+J</value>
+  </data>
+  <data name="changeJdkPathPatternsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 22</value>
+  </data>
+  <data name="changeJdkPathPatternsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Change JDK path patterns...</value>
+  </data>
+  <data name="settingsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 22</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="editToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 20</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="toolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
+  </data>
+  <data name="toolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>?</value>
+  </data>
   <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -354,54 +399,18 @@
   <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="closeToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+Q</value>
-  </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
-  </data>
-  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 20</value>
-  </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="changeJdkPathPatternsToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value />
-  </data>
-  <data name="changeJdkPathPatternsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+J</value>
-  </data>
-  <data name="changeJdkPathPatternsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 22</value>
-  </data>
-  <data name="changeJdkPathPatternsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change JDK path patterns...</value>
-  </data>
-  <data name="toolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="toolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>?</value>
-  </data>
-  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 22</value>
-  </data>
-  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
-    <value>About</value>
-  </data>
   <metadata name="statusStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <data name="toolStripStatusLabelMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 17</value>
+  </data>
+  <data name="toolStripStatusLabelMain.Text" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="toolStripProgressBarMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
   <data name="statusStripMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 411</value>
   </data>
@@ -426,23 +435,92 @@
   <data name="&gt;&gt;statusStripMain.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="toolStripStatusLabelMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 17</value>
-  </data>
-  <data name="toolStripStatusLabelMain.Text" xml:space="preserve">
-    <value>Ready</value>
-  </data>
-  <data name="toolStripProgressBarMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 16</value>
-  </data>
   <metadata name="notifyIconJuggler.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>268, 17</value>
   </metadata>
   <metadata name="contextMenuStripNotify.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>415, 17</value>
   </metadata>
+  <data name="toolStripMenuItemOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="toolStripMenuItemOpen.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="toolStripMenuItemClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="jdkListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="jdkListToolStripMenuItem.Text" xml:space="preserve">
+    <value>JDK List</value>
+  </data>
+  <data name="toolStripMenuItemGetSystemPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemGetSystemPath.Text" xml:space="preserve">
+    <value>Get System PATH</value>
+  </data>
+  <data name="toolStripMenuItemGetSavedPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemGetSavedPath.Text" xml:space="preserve">
+    <value>Get Saved PATH</value>
+  </data>
+  <data name="toolStripMenuItemGetSystemJavaHome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemGetSystemJavaHome.Text" xml:space="preserve">
+    <value>Get System JAVA_HOME</value>
+  </data>
+  <data name="toolStripMenuItemGetSavedJavaHome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemGetSavedJavaHome.Text" xml:space="preserve">
+    <value>Get Saved JAVA_HOME</value>
+  </data>
+  <data name="toolStripSeparatorSettingsSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 6</value>
+  </data>
+  <data name="toolStripMenuItemSaveSystemPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemSaveSystemPath.Text" xml:space="preserve">
+    <value>Save System PATH</value>
+  </data>
+  <data name="toolStripMenuItemSaveSystemJavaHome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemSaveSystemJavaHome.Text" xml:space="preserve">
+    <value>Save System JAVA_HOME</value>
+  </data>
+  <data name="toolStripSeparatorSettingsRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 6</value>
+  </data>
+  <data name="toolStripMenuItemRestoreSystemPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemRestoreSystemPath.Text" xml:space="preserve">
+    <value>Restore System PATH</value>
+  </data>
+  <data name="toolStripMenuItemRestoreJavaHomePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="toolStripMenuItemRestoreJavaHomePath.Text" xml:space="preserve">
+    <value>Restore System JAVA_HOME</value>
+  </data>
+  <data name="toolStripMenuItemSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="toolStripMenuItemSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="contextMenuStripNotify.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 70</value>
+    <value>117, 92</value>
   </data>
   <data name="&gt;&gt;contextMenuStripNotify.Name" xml:space="preserve">
     <value>contextMenuStripNotify</value>
@@ -1584,24 +1662,6 @@
   </data>
   <data name="notifyIconJuggler.Text" xml:space="preserve">
     <value>Juggler</value>
-  </data>
-  <data name="toolStripMenuItemOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="toolStripMenuItemOpen.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="toolStripMenuItemClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="jdkListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="jdkListToolStripMenuItem.Text" xml:space="preserve">
-    <value>JDK List</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2783,6 +2843,12 @@
   <data name="&gt;&gt;changeJdkPathPatternsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;settingsToolStripMenuItem.Name" xml:space="preserve">
+    <value>settingsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;settingsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripMenuItemHelp.Name" xml:space="preserve">
     <value>toolStripMenuItemHelp</value>
   </data>
@@ -2829,6 +2895,72 @@
     <value>jdkListToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;jdkListToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemSettings.Name" xml:space="preserve">
+    <value>toolStripMenuItemSettings</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSystemPath.Name" xml:space="preserve">
+    <value>toolStripMenuItemGetSystemPath</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSystemPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSavedPath.Name" xml:space="preserve">
+    <value>toolStripMenuItemGetSavedPath</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSavedPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSystemJavaHome.Name" xml:space="preserve">
+    <value>toolStripMenuItemGetSystemJavaHome</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSystemJavaHome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSavedJavaHome.Name" xml:space="preserve">
+    <value>toolStripMenuItemGetSavedJavaHome</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemGetSavedJavaHome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparatorSettingsSave.Name" xml:space="preserve">
+    <value>toolStripSeparatorSettingsSave</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparatorSettingsSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemSaveSystemPath.Name" xml:space="preserve">
+    <value>toolStripMenuItemSaveSystemPath</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemSaveSystemPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemSaveSystemJavaHome.Name" xml:space="preserve">
+    <value>toolStripMenuItemSaveSystemJavaHome</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemSaveSystemJavaHome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparatorSettingsRestore.Name" xml:space="preserve">
+    <value>toolStripSeparatorSettingsRestore</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparatorSettingsRestore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemRestoreSystemPath.Name" xml:space="preserve">
+    <value>toolStripMenuItemRestoreSystemPath</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemRestoreSystemPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemRestoreJavaHomePath.Name" xml:space="preserve">
+    <value>toolStripMenuItemRestoreJavaHomePath</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItemRestoreJavaHomePath.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

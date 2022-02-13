@@ -42,5 +42,5 @@ Juggler изменяет переменные среды `JAVA_HOME` и `PATH`. 
     файлов JDK в переменной `PATH`
 
 ## Как использовать?
-Распакуйте [архив](https://github.com/ViiSE/juggler/releases/tag/Release) в удобном для вас месте и запустите 
+Распакуйте [архив](https://github.com/ViiSE/juggler/releases/latest) в удобном для вас месте и запустите 
 `Juggler.exe` Можете создать ярлык для быстрого доступа `:)`.

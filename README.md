@@ -42,4 +42,4 @@ pattern `\java\jdk`. Notice that pattern and environment variable lowercase tran
     `PATH`
 
 ## How to use?
-Extract the [archive](https://github.com/ViiSE/juggler/releases/tag/Release) in any directory and run `Juggler.exe`.
+Extract the [archive](https://github.com/ViiSE/juggler/releases/latest) in any directory and run `Juggler.exe`.

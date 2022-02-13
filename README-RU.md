@@ -26,7 +26,10 @@ Juggler изменяет переменные среды `JAVA_HOME` и `PATH`. 
  3. Создавать и изменять список паттернов, использующийся для поиска папки исполняемых файлов JDK в переменной `PATH`
  4. Juggler сворачивается в System Tray. Для этого необходимо закрыть программу через системную кнопку `Закрыть` 
     (красный крестик). В этом режиме также можно менять JDK на лету и производить действия с PATH и JAVA_HOME
- 5. Получать, сохранять, восстанавливать JAVA_HOME и PATH
+ 5. Получать, сохранять, восстанавливать JAVA_HOME и PATH, и восстанавливать ключ реестра 
+    `HKEY_CLASSES_ROOT\jarfile\shell\open\command` по сохраненной переменной JAVA_HOME
+ 6. Changing the JDK also changes the value of the `HKEY_CLASSES_ROOT\jarfile\shell\open\command` registry key. The key 
+    is needed so that the jar file opens when the mouse is double-clicked
 
 ## Особенности
  1. Изменение системных переменных сред требует административных прав пользователя. Поэтому программа запускается в 

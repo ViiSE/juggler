@@ -26,7 +26,9 @@ pattern `\java\jdk`. Notice that pattern and environment variable lowercase tran
  3. Creates and modifies the list of patterns used to find executable JDK folder in `PATH`
  4. Juggler minimizes to System Tray. To do this, you need to close the program through the system button `Close` 
     (red cross). In System Tray you can also change the JDK on the fly and perform actions with PATH and JAVA_HOME
- 5. Get, save, restore JAVA_HOME and PATH
+ 5. Get, save, restore JAVA_HOME and PATH and restore the registry key `HKEY_CLASSES_ROOT\jarfile\shell\open\command` by
+    saved JAVA_HOME variable
+ 6. 
 
 ## Peculiarities
  1. Changing system environments requires administrator privileges. Therefore, the program is used in mode 

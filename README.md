@@ -28,7 +28,8 @@ pattern `\java\jdk`. Notice that pattern and environment variable lowercase tran
     (red cross). In System Tray you can also change the JDK on the fly and perform actions with PATH and JAVA_HOME
  5. Get, save, restore JAVA_HOME and PATH and restore the registry key `HKEY_CLASSES_ROOT\jarfile\shell\open\command` by
     saved JAVA_HOME variable
- 6. 
+ 6. Changing the JDK also changes the value of the `HKEY_CLASSES_ROOT\jarfile\shell\open\command` registry key. The key
+    is needed so that the jar file opens when the mouse is double-clicked
 
 ## Peculiarities
  1. Changing system environments requires administrator privileges. Therefore, the program is used in mode 

@@ -17,7 +17,7 @@ namespace Juggler
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain(new JdkPath(), new JugglerPropertiesFromFile()));
+            Application.Run(new FormMain(new JdkPath(), new JarRegistry(), new JugglerPropertiesFromFile()));
         }
     }
 }

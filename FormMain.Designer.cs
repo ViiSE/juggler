@@ -66,6 +66,7 @@
             this.toolStripSeparatorSettingsRestore = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRestoreSystemPath = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRestoreJavaHomePath = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRestoreRegistryJarfileShellCommand = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
@@ -261,7 +262,8 @@
             this.toolStripMenuItemSaveSystemJavaHome,
             this.toolStripSeparatorSettingsRestore,
             this.toolStripMenuItemRestoreSystemPath,
-            this.toolStripMenuItemRestoreJavaHomePath});
+            this.toolStripMenuItemRestoreJavaHomePath,
+            this.toolStripMenuItemRestoreRegistryJarfileShellCommand});
             this.toolStripMenuItemSettings.Name = "toolStripMenuItemSettings";
             resources.ApplyResources(this.toolStripMenuItemSettings, "toolStripMenuItemSettings");
             // 
@@ -322,6 +324,12 @@
             this.toolStripMenuItemRestoreJavaHomePath.Name = "toolStripMenuItemRestoreJavaHomePath";
             resources.ApplyResources(this.toolStripMenuItemRestoreJavaHomePath, "toolStripMenuItemRestoreJavaHomePath");
             this.toolStripMenuItemRestoreJavaHomePath.Click += new System.EventHandler(this.ToolStripMenuItemRestoreJavaHomePath_Click);
+            // 
+            // toolStripMenuItemRestoreRegistryJarfileShellCommand
+            // 
+            this.toolStripMenuItemRestoreRegistryJarfileShellCommand.Name = "toolStripMenuItemRestoreRegistryJarfileShellCommand";
+            resources.ApplyResources(this.toolStripMenuItemRestoreRegistryJarfileShellCommand, "toolStripMenuItemRestoreRegistryJarfileShellCommand");
+            this.toolStripMenuItemRestoreRegistryJarfileShellCommand.Click += new System.EventHandler(this.ToolStripMenuItemRestoreRegistryJarfileShellCommand_Click);
             // 
             // FormMain
             // 
@@ -385,6 +393,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorSettingsRestore;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRestoreSystemPath;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRestoreJavaHomePath;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRestoreRegistryJarfileShellCommand;
     }
 }
 

@@ -44,6 +44,7 @@
             this.buttonGetSavedJavaHome = new System.Windows.Forms.Button();
             this.buttonGetSystemJavaHome = new System.Windows.Forms.Button();
             this.checkBoxAutomaticallySavePathAndJavaHome = new System.Windows.Forms.CheckBox();
+            this.buttonRestoreRegistryJarfileCommand = new System.Windows.Forms.Button();
             this.statusStripSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,11 +211,24 @@
             this.checkBoxAutomaticallySavePathAndJavaHome.Text = "Automatically save PATH and JAVA_HOME";
             this.checkBoxAutomaticallySavePathAndJavaHome.UseVisualStyleBackColor = true;
             // 
+            // buttonRestoreRegistryJarfileCommand
+            // 
+            this.buttonRestoreRegistryJarfileCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonRestoreRegistryJarfileCommand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonRestoreRegistryJarfileCommand.Location = new System.Drawing.Point(11, 391);
+            this.buttonRestoreRegistryJarfileCommand.Name = "buttonRestoreRegistryJarfileCommand";
+            this.buttonRestoreRegistryJarfileCommand.Size = new System.Drawing.Size(266, 29);
+            this.buttonRestoreRegistryJarfileCommand.TabIndex = 19;
+            this.buttonRestoreRegistryJarfileCommand.Text = "Restore Registry Jarfile Command";
+            this.buttonRestoreRegistryJarfileCommand.UseVisualStyleBackColor = true;
+            this.buttonRestoreRegistryJarfileCommand.Click += new System.EventHandler(this.ButtonRestoreRegistryJarfileCommand_Click);
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(291, 506);
+            this.Controls.Add(this.buttonRestoreRegistryJarfileCommand);
             this.Controls.Add(this.checkBoxAutomaticallySavePathAndJavaHome);
             this.Controls.Add(this.buttonGetSystemJavaHome);
             this.Controls.Add(this.buttonGetSavedJavaHome);
@@ -256,5 +270,6 @@
         private System.Windows.Forms.Button buttonGetSavedJavaHome;
         private System.Windows.Forms.Button buttonGetSystemJavaHome;
         private System.Windows.Forms.CheckBox checkBoxAutomaticallySavePathAndJavaHome;
+        private System.Windows.Forms.Button buttonRestoreRegistryJarfileCommand;
     }
 }

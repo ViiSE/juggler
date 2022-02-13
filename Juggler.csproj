@@ -137,6 +137,8 @@
     <Compile Include="IChecker.cs" />
     <Compile Include="IProperties.cs" />
     <Compile Include="IPath.cs" />
+    <Compile Include="IRegistry.cs" />
+    <Compile Include="JarRegistry.cs" />
     <Compile Include="JavaPropertiesDTO.cs" />
     <Compile Include="JdkPath.cs" />
     <Compile Include="JdkPropertiesDTO.cs" />

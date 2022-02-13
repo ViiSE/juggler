@@ -6,11 +6,12 @@ namespace Juggler
 {
     public class JdkPath : IPath
     {
-        public void Change(string newJdkPath, List<string> pathPatterns)
+        public string Change(string newJdkPath, List<string> pathPatterns)
         {
             List<string> pathVars = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine).Split(';').OfType<string>().ToList();
             List<string> newPathVars = new List<string>();
             bool isFounded = false;
+            string jdkPath = "";
             foreach (string pathVar in pathVars)
             {
                 string pathVarLower = pathVar.ToLower();
@@ -20,6 +21,7 @@ namespace Juggler
                     {
                         if (pathVarLower.Contains(pathPattern.ToLower()) || pathVarLower.Equals(pathPattern.ToLower()))
                         {
+                            jdkPath = newJdkPath + "\\bin";
                             newPathVars.Add(newJdkPath + "\\bin");
                             isFounded = true;
                             break;
@@ -40,6 +42,8 @@ namespace Juggler
             string newPath = string.Join(";", newPathVars);
             Environment.SetEnvironmentVariable("JAVA_HOME", newJdkPath, EnvironmentVariableTarget.Machine);
             Environment.SetEnvironmentVariable("PATH", newPath, EnvironmentVariableTarget.Machine);
+
+            return jdkPath;
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Juggler
 {
     public interface IPath
     {
-        void Change(string newPath, List<string> pathPatterns);
+        string Change(string newPath, List<string> pathPatterns);
     }
 }

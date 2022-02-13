@@ -13,12 +13,14 @@ namespace Juggler
     public partial class FormSettings : Form
     {
         private readonly IProperties<JugglerPropertiesDTO> props;
+        private readonly IRegistry<string> jarRegistry;
         private readonly FormMain formMain;
 
-        public FormSettings(IProperties<JugglerPropertiesDTO> props, FormMain formMain)
+        public FormSettings(IProperties<JugglerPropertiesDTO> props, IRegistry<string> jarRegistry, FormMain formMain)
         {
             InitializeComponent();
             this.props = props;
+            this.jarRegistry = jarRegistry;
             this.formMain= formMain;
             checkBoxChangeJdkBasedOnDefaultJdk.Checked = props.Get().JavaPropertiesDTO.ChangeJdkBasedOnDefaultJdk;
             checkBoxAutomaticallySavePathAndJavaHome.Checked = props.Get().JavaPropertiesDTO.AutomaticallySavePathAndJavaHome;
@@ -258,6 +260,60 @@ namespace Juggler
 
                 DisableAll();
                 Task.Run(() => Environment.SetEnvironmentVariable("JAVA_HOME", props.Get().SavedJavaHome, EnvironmentVariableTarget.Machine)).ContinueWith(t => {
+                    progressBarAnimationSpeed?.Report(0);
+                    progressBarValue?.Report(0);
+                    progressStatusText?.Report("Ready");
+
+                    progressBtnOkEnabled?.Report(true);
+                    progressBtnCancelEnabled?.Report(true);
+                    progressBtnGetSavedPathEnabled?.Report(true);
+                    progressBtnGetSystemPathEnabled?.Report(true);
+                    progressBtnSaveSystemPathEnabled?.Report(true);
+                    progressChkBoxChangeJdkBasedOnDefaultJdkEnabled?.Report(true);
+                    progressBtnRestoreSystemPathEnabled?.Report(true);
+                    progressBtnRestoreRestoreJavaHomeEnabled?.Report(true);
+                    progressBtnSaveSystemJavaHomeEnabled?.Report(true);
+                    progressBtnGetSavedJavaHomeEnabled?.Report(true);
+                    progressBtnGetSystemJavaHomeEnabled?.Report(true);
+                    progressChkBoxAutomaticallySavePathAndJavaHomeEnabled?.Report(true);
+                });
+            }
+        }
+
+        private void ButtonRestoreRegistryJarfileCommand_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure? jarfile/shell/open/command Will be changed", "Restore jarfile/shell/open/command", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string defaultJdkPath = props.Get().SavedJavaHome;
+                if (defaultJdkPath.Length != 0)
+                {
+                    MessageBox.Show("Saved JAVA_HOME is not found!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                IProgress<int> progressBarAnimationSpeed = new Progress<int>(value => { toolStripProgressBarSettings.MarqueeAnimationSpeed = value; });
+                IProgress<int> progressBarValue = new Progress<int>(value => { toolStripProgressBarSettings.Value = value; });
+                IProgress<string> progressStatusText = new Progress<string>(value => { toolStripStatusLabelSettings.Text = value; });
+
+                IProgress<bool> progressBtnOkEnabled = new Progress<bool>(value => { buttonOK.Enabled = value; });
+                IProgress<bool> progressBtnCancelEnabled = new Progress<bool>(value => { buttonCancel.Enabled = value; });
+                IProgress<bool> progressBtnGetSavedPathEnabled = new Progress<bool>(value => { buttonGetSavedPath.Enabled = value; });
+                IProgress<bool> progressBtnGetSystemPathEnabled = new Progress<bool>(value => { buttonGetSystemPath.Enabled = value; });
+                IProgress<bool> progressBtnSaveSystemPathEnabled = new Progress<bool>(value => { buttonSaveSystemPath.Enabled = value; });
+                IProgress<bool> progressChkBoxChangeJdkBasedOnDefaultJdkEnabled = new Progress<bool>(value => { checkBoxChangeJdkBasedOnDefaultJdk.Enabled = value; });
+                IProgress<bool> progressBtnRestoreSystemPathEnabled = new Progress<bool>(value => { buttonRestoreSystemPath.Enabled = value; });
+                IProgress<bool> progressBtnRestoreRestoreJavaHomeEnabled = new Progress<bool>(value => { buttonRestoreJavaHome.Enabled = value; });
+                IProgress<bool> progressBtnSaveSystemJavaHomeEnabled = new Progress<bool>(value => { buttonSaveSystemJavaHome.Enabled = value; });
+                IProgress<bool> progressBtnGetSavedJavaHomeEnabled = new Progress<bool>(value => { buttonGetSavedJavaHome.Enabled = value; });
+                IProgress<bool> progressBtnGetSystemJavaHomeEnabled = new Progress<bool>(value => { buttonGetSystemJavaHome.Enabled = value; });
+                IProgress<bool> progressChkBoxAutomaticallySavePathAndJavaHomeEnabled = new Progress<bool>(value => { checkBoxAutomaticallySavePathAndJavaHome.Enabled = value; });
+
+                toolStripStatusLabelSettings.Text = "Please, wait...";
+                toolStripProgressBarSettings.MarqueeAnimationSpeed = 100;
+
+                DisableAll();
+                Task.Run(() => jarRegistry.Change(defaultJdkPath + "\\bin")).ContinueWith(t => {
                     progressBarAnimationSpeed?.Report(0);
                     progressBarValue?.Report(0);
                     progressStatusText?.Report("Ready");

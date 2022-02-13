@@ -15,12 +15,14 @@ namespace Juggler
         private bool needExit = false;
 
         private readonly IPath jdkPath;
+        private readonly IRegistry<string> jarRegistry;
         private readonly IProperties<JugglerPropertiesDTO> props;
 
-        public FormMain(IPath jdkPath, IProperties<JugglerPropertiesDTO> props)
+        public FormMain(IPath jdkPath, IRegistry<string> jarRegistry, IProperties<JugglerPropertiesDTO> props)
         {
             InitializeComponent();
             this.jdkPath = jdkPath;
+            this.jarRegistry = jarRegistry;
             this.props = props;
 
             List<JdkPropertiesDTO> jdkPropertiesDTOs = props.Get().JavaPropertiesDTO.JdkPropertiesDTOs;
@@ -224,16 +226,28 @@ namespace Juggler
                                 jdkPathPatterns = props.Get().JavaPropertiesDTO.JdkPathPatterns;
                             }
 
-                            jdkPath.Change(path, jdkPathPatterns);
+                            string jdkPathExec = jdkPath.Change(path, jdkPathPatterns);
+                            if (jdkPathExec.Length != 0)
+                            {
+                                jarRegistry.Change(jdkPathExec);
+                            }
                         }
                         else
                         {
-                            jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                            string jdkPathExec = jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                            if (jdkPathExec.Length != 0)
+                            {
+                                jarRegistry.Change(jdkPathExec);
+                            }
                         }
                     }
                     else
                     {
-                        jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                        string jdkPathExec = jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                        if (jdkPathExec.Length != 0)
+                        {
+                            jarRegistry.Change(jdkPathExec);
+                        }
                     }
 
                     if (props.Get().JavaPropertiesDTO.AutomaticallySavePathAndJavaHome)
@@ -281,7 +295,11 @@ namespace Juggler
                     notifyIconJuggler.BalloonTipTitle = "Juggler";
                     notifyIconJuggler.BalloonTipText = "Change JDK to '" + senderItem.Name + "', please, wait...";
                     notifyIconJuggler.ShowBalloonTip(5000);
-                    jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                    string jdkPathExec = jdkPath.Change(path, props.Get().JavaPropertiesDTO.JdkPathPatterns);
+                    if (jdkPathExec.Length != 0)
+                    {
+                        jarRegistry.Change(jdkPathExec);
+                    }
                     SaveDefaultJdk(senderItem.Name);
                     foreach (ToolStripMenuItem item in jdkListToolStripMenuItem.DropDownItems)
                     {
@@ -363,7 +381,7 @@ namespace Juggler
 
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSettings formSettings = new FormSettings(props, this);
+            FormSettings formSettings = new FormSettings(props, jarRegistry, this);
             formSettings.ShowDialog();
         }
 
@@ -491,6 +509,25 @@ namespace Juggler
             notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
             notifyIconJuggler.BalloonTipTitle = "Success!";
             notifyIconJuggler.BalloonTipText = "JAVA_HOME has been restored!";
+            notifyIconJuggler.ShowBalloonTip(1000);
+        }
+
+        private void ToolStripMenuItemRestoreRegistryJarfileShellCommand_Click(object sender, EventArgs e)
+        {
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Restore Registry";
+            notifyIconJuggler.BalloonTipText = "Restore Registry jarfile open command, please, wait...";
+            notifyIconJuggler.ShowBalloonTip(5000);
+
+            string defaultJdkPath = props.Get().SavedJavaHome;
+            if (defaultJdkPath.Length != 0)
+            {
+                jarRegistry.Change(defaultJdkPath + "\\bin");
+            }
+
+            notifyIconJuggler.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconJuggler.BalloonTipTitle = "Success!";
+            notifyIconJuggler.BalloonTipText = "Registry jarfile open command has been restored!";
             notifyIconJuggler.ShowBalloonTip(1000);
         }
     }
